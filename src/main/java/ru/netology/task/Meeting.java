@@ -12,16 +12,15 @@ public class Meeting extends Task {
         this.start = start;
     }
 
-    public String getTopic() {
-        return topic;
-    }
-
     @Override
     public boolean matches(String query) {
         if (topic.contains(query)) {
             return true;
         }
         if (project.contains(query)) {
+            return true;
+        }
+        if (start.contains(query)) {
             return true;
         }
         return false;

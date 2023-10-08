@@ -27,4 +27,19 @@ public class TodosTest {
         Task[] actual = todos.findAll();
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void shouldQueryTodos() {
+        Todos todos = new Todos();
+        todos.add(new SimpleTask(13, "Оплатить кварплату"));
+        todos.add(new Epic(6, new String[]{"Подработка", "Отправить портфолио", "Уточнить место"}));
+        todos.add(new Meeting(77,
+                "Окультуривание",
+                "Театр Красный факел",
+                "Вторник"));
+        Task[] expected = {new SimpleTask(13, "Оплатить кварплату")};
+        Task[] actual = todos.search("Оплатить");
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
 }
