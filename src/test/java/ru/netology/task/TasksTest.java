@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class TasksTest {
     @Test
-    public void shouldMatchesQuerySimpleTaskPlus() {
+    public void shouldMatchesQuerySimpleTask() {
         SimpleTask simpleTask = new SimpleTask(6, "Оплатить кварплату");
 
         String query = "Оплатить кварплату";
@@ -17,7 +17,7 @@ public class TasksTest {
     }
 
     @Test
-    public void shouldMatchesQuerySimpleTaskMinus() {
+    public void shouldNotMatchesQuerySimpleTask() {
         SimpleTask simpleTask = new SimpleTask(6, "Оплатить кварплату");
 
         String query = "7";
@@ -28,7 +28,7 @@ public class TasksTest {
         Assertions.assertEquals(expected, actual);
     }
     @Test
-    public void shouldMatchesQueryEpicPlus() {
+    public void shouldMatchesQueryEpic() {
         String[] subtasks = {"Подработка", "Отправить портфолио", "Уточнить место"};
         Epic epic = new Epic(13, subtasks);
 
@@ -41,7 +41,7 @@ public class TasksTest {
     }
 
     @Test
-    public void shouldMatchesQueryEpicMinus() {
+    public void shouldNotMatchesQueryEpic() {
         String[] subtasks = {"Подработка", "Отправить портфолио", "Уточнить место"};
         Epic epic = new Epic(13, subtasks);
 
@@ -53,7 +53,7 @@ public class TasksTest {
         Assertions.assertEquals(expected, actual);
     }
     @Test
-    public void shouldMatchesQueryMeetingProjectPlus() {
+    public void shouldMatchesQueryMeetingProject() {
         Meeting meeting = new Meeting(
                 77,
                 "Окультуривание",
@@ -68,7 +68,7 @@ public class TasksTest {
         Assertions.assertEquals(expected, actual);
     }
     @Test
-    public void shouldMatchesQueryMeetingProjectMinus() {
+    public void shouldNotMatchesQueryMeetingProject() {
         Meeting meeting = new Meeting(
                 77,
                 "Окультуривание",
@@ -84,7 +84,7 @@ public class TasksTest {
     }
 
     @Test
-    public void shouldMatchesQueryMeetingTopicPlus() {
+    public void shouldMatchesQueryMeetingTopic() {
         Meeting meeting = new Meeting(
                 77,
                 "Окультуривание в столице Сибири",
@@ -99,7 +99,7 @@ public class TasksTest {
         Assertions.assertEquals(expected, actual);
     }
     @Test
-    public void shouldMatchesQueryMeetingTopicMinus() {
+    public void shouldNotMatchesQueryMeetingTopic() {
         Meeting meeting = new Meeting(
                 77,
                 "Окультуривание в столице Сибири",
@@ -113,7 +113,7 @@ public class TasksTest {
         Assertions.assertEquals(expected, actual);
     }
     @Test
-    public void shouldMatchesQueryMeetingStartPlus() {
+    public void shouldMatchesQueryMeetingStart() {
         Meeting meeting = new Meeting(
                 77,
                 "Окультуривание в столице Сибири",
@@ -128,7 +128,7 @@ public class TasksTest {
         Assertions.assertEquals(expected, actual);
     }
     @Test
-    public void shouldMatchesQueryMeetingStartMinus() {
+    public void shouldNoMatchesQueryMeetingStart() {
         Meeting meeting = new Meeting(
                 77,
                 "Окультуривание в столице Сибири",
